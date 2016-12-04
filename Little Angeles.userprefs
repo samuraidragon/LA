@@ -1,0 +1,20 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/risuController.cs">
+    <Files>
+      <File FileName="Assets/risuController.cs" Line="43" Column="33" />
+      <File FileName="Assets/HebiController.cs" Line="1" Column="1" />
+      <File FileName="Assets/positionUp.cs" Line="1" Column="1" />
+      <File FileName="Assets/risumoveScripts.cs" Line="1" Column="1" />
+      <File FileName="Assets/risuNPCmoveScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/risuScoreScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/NatureStarterKit2/Standard Assets/Effects/ImageEffects/Scripts/BloomOptimized.cs" Line="1" Column="1" />
+      <File FileName="Assets/hukurouController.cs" Line="1" Column="1" />
+      <File FileName="Assets/RisuHPScript.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

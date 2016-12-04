@@ -1,0 +1,55 @@
+/Users/suenamikatsumi/Desktop/Little Angeles/Temp/bin/Debug/UnityEngine.dll
+/Users/suenamikatsumi/Desktop/Little Angeles/Temp/bin/Debug/UnityEditor.dll
+/Users/suenamikatsumi/Desktop/Little Angeles/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/suenamikatsumi/Desktop/Little Angeles/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/suenamikatsumi/Desktop/Little Angeles/Temp/bin/Debug/Assembly-CSharp-firstpass.dll
+/Users/suenamikatsumi/Desktop/Little Angeles/Temp/bin/Debug/Assembly-CSharp-firstpass.dll.mdb
+/Users/suenamikatsumi/Desktop/Little Angeles/Temp/bin/Debug/Mono.Cecil.dll
+/Users/suenamikatsumi/Desktop/Little Angeles/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/suenamikatsumi/Desktop/Little Angeles/Temp/bin/Debug/Unity.DataContract.dll
+/Users/suenamikatsumi/Desktop/Little Angeles/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/suenamikatsumi/Desktop/Little Angeles/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/suenamikatsumi/Desktop/Little Angeles/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/suenamikatsumi/Desktop/Little Angeles/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/suenamikatsumi/Desktop/Little Angeles/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/suenamikatsumi/Desktop/Little Angeles/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/suenamikatsumi/Desktop/Little Angeles/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/suenamikatsumi/Desktop/Little Angeles/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/suenamikatsumi/Desktop/Little Angeles/obj/Debug/Assembly-CSharp.dll
+/Users/suenamikatsumi/Desktop/Little Angeles/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/suenamikatsumi/Desktop/Little Angelesプロジェクトフォルダ/Little Angeles/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/suenamikatsumi/Desktop/Little Angelesプロジェクトフォルダ/Little Angeles/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/suenamikatsumi/Desktop/Little Angelesプロジェクトフォルダ/Little Angeles/obj/Debug/Assembly-CSharp.dll
+/Users/suenamikatsumi/Desktop/Little Angelesプロジェクトフォルダ/Little Angeles/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/suenamikatsumi/Desktop/Little Angelesプロジェクトフォルダ/Little Angeles/Temp/bin/Debug/UnityEngine.dll
+/Users/suenamikatsumi/Desktop/Little Angelesプロジェクトフォルダ/Little Angeles/Temp/bin/Debug/UnityEditor.dll
+/Users/suenamikatsumi/Desktop/Little Angelesプロジェクトフォルダ/Little Angeles/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/suenamikatsumi/Desktop/Little Angelesプロジェクトフォルダ/Little Angeles/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/suenamikatsumi/Desktop/Little Angelesプロジェクトフォルダ/Little Angeles/Temp/bin/Debug/Assembly-CSharp-firstpass.dll
+/Users/suenamikatsumi/Desktop/Little Angelesプロジェクトフォルダ/Little Angeles/Temp/bin/Debug/Assembly-CSharp-firstpass.dll.mdb
+/Users/suenamikatsumi/Desktop/Little Angelesプロジェクトフォルダ/Little Angeles/Temp/bin/Debug/Mono.Cecil.dll
+/Users/suenamikatsumi/Desktop/Little Angelesプロジェクトフォルダ/Little Angeles/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/suenamikatsumi/Desktop/Little Angelesプロジェクトフォルダ/Little Angeles/Temp/bin/Debug/Unity.DataContract.dll
+/Users/suenamikatsumi/Desktop/Little Angelesプロジェクトフォルダ/Little Angeles/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/suenamikatsumi/Desktop/Little Angelesプロジェクトフォルダ/Little Angeles/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/suenamikatsumi/Desktop/Little Angelesプロジェクトフォルダ/Little Angeles/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/suenamikatsumi/Desktop/Little Angelesプロジェクトフォルダ/Little Angeles/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/suenamikatsumi/Desktop/Little Angelesプロジェクトフォルダ/Little Angeles/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/suenamikatsumi/Desktop/Little Angelesプロジェクトフォルダ/Little Angeles/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/suenamikatsumi/Desktop/Data/Little Angeles/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/suenamikatsumi/Desktop/Data/Little Angeles/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/suenamikatsumi/Desktop/Data/Little Angeles/obj/Debug/Assembly-CSharp.dll
+/Users/suenamikatsumi/Desktop/Data/Little Angeles/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/suenamikatsumi/Desktop/Data/Little Angeles/Temp/bin/Debug/UnityEngine.dll
+/Users/suenamikatsumi/Desktop/Data/Little Angeles/Temp/bin/Debug/UnityEditor.dll
+/Users/suenamikatsumi/Desktop/Data/Little Angeles/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/suenamikatsumi/Desktop/Data/Little Angeles/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/suenamikatsumi/Desktop/Data/Little Angeles/Temp/bin/Debug/Mono.Cecil.dll
+/Users/suenamikatsumi/Desktop/Data/Little Angeles/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/suenamikatsumi/Desktop/Data/Little Angeles/Temp/bin/Debug/Unity.DataContract.dll
+/Users/suenamikatsumi/Desktop/Data/Little Angeles/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/suenamikatsumi/Desktop/Data/Little Angeles/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/suenamikatsumi/Desktop/Data/Little Angeles/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/suenamikatsumi/Desktop/Data/Little Angeles/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/suenamikatsumi/Desktop/Data/Little Angeles/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/suenamikatsumi/Desktop/Data/Little Angeles/Temp/bin/Debug/Mono.Cecil.Mdb.dll
