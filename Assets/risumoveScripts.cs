@@ -41,8 +41,8 @@ public class risumoveScripts : MonoBehaviour {
 		//リスが空中にいるときの時間を計測する（すぐに視点が切り替わるのを防ぐため）
 		if (FloatingFlag == true) {
 			FloatingCount += Time.deltaTime;
-			if (FloatingCount > 1f) {
-				RisuController.GroundModeStart(); //地上にいる時の1フレーム目の処理メソッド
+			if (FloatingCount > 0.2f) {
+				RisuController.GroundModeStart (); //地上にいる時の1フレーム目の処理メソッド
 				Status = state.ground;
 				FloatingFlag = false; //リスが空中にいる時間をリセット
 				FloatingCount = 0f;
@@ -55,12 +55,15 @@ public class risumoveScripts : MonoBehaviour {
 			RisuController.GroundModeUpdate ();	
 
 		//幹にいる時のメソッド呼び出し
-		if (Status == state.tree)
-			RisuController.TreeModeUpdate ();	
+		if (Status == state.tree) {
+			RisuController.TreeModeUpdate ();
+		}
 
 		//枝の上にいる時のメソッド呼び出し
-		if (Status == state.branch)
+		if (Status == state.branch) {
 			RisuController.BranchModeUpdate ();	
+
+		}
 		
 
 
@@ -68,7 +71,7 @@ public class risumoveScripts : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision other){
-
+		
 		//幹にいる時の1フレーム目
 		if(other.gameObject.tag == ("Tree") && Status != state.tree && FloatingFlag == false){
 			RisuController.TreeModeStart(); //幹にいる1フレーム目処理メソッド
@@ -85,6 +88,29 @@ public class risumoveScripts : MonoBehaviour {
 			FloatingCount = 0f;
 		}
 	}
+
+
+	void OnCollisionStay(Collision other){
+		
+		//幹にいる時の1フレーム目
+		if(other.gameObject.tag == ("Tree")){
+
+			FloatingFlag = false;  //リスが空中にいる時間をリセット
+			FloatingCount = 0f;
+		}
+
+		//枝の上にいる1フレーム目
+		if(other.gameObject.tag == ("Branch")){
+
+			FloatingFlag = false; //リスが空中にいる時間をリセット
+			FloatingCount = 0f;
+		}
+	}
+
+
+
+
+
 
 	void OnCollisionExit(Collision other){
 		if (other.gameObject.tag == ("Tree")) {

@@ -6,6 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/real.unity
+  - enabled: 1
     path: Assets/MAIN.unity
   - enabled: 1
     path: Assets/clear.unity
