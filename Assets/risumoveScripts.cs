@@ -4,6 +4,7 @@ using System.Collections;
 public class risumoveScripts : MonoBehaviour {
 	risuController RisuController;
 	GameObject Controller;
+
 	//リスの状態を判断するためのステータスを列挙型にしている
 	enum state{
 		ground,tree,branch
@@ -12,6 +13,7 @@ public class risumoveScripts : MonoBehaviour {
 
 	bool FloatingFlag;  //リスが空中に浮いているかを判断するためのフラグ
 	float FloatingCount; //リスが空中に浮いている時の時間
+	bool JumpLimltFlag; //jumpを一回に制限するためのフラグ
 
 
 	void Start () {
@@ -21,15 +23,17 @@ public class risumoveScripts : MonoBehaviour {
 		Status = state.ground; 
 		FloatingFlag = false;
 		FloatingCount = 0f;
+
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
+		if (Input.GetMouseButtonDown (0)) {
+			RisuController.attack ();
+		}
 
-		Debug.Log (Status);
-		Debug.Log (FloatingFlag);
-		Debug.Log (FloatingCount);
+
 		//リスが歩くためのメソッド呼び出し
 		RisuController.move (); 
 	
@@ -37,10 +41,15 @@ public class risumoveScripts : MonoBehaviour {
 		if (Input.GetKey (KeyCode.LeftShift)) {
 			RisuController.dash ();
 		}
+		if (Input.GetKeyDown (KeyCode.Space) && Input.GetAxis ("Vertical") > 0 && JumpLimltFlag == false) {
+			RisuController.jump ();
+			JumpLimltFlag = true; //jumpを一回に制限するためのフラグをONに（jumpできないように制限）
+		}
 
 		//リスが空中にいるときの時間を計測する（すぐに視点が切り替わるのを防ぐため）
 		if (FloatingFlag == true) {
 			FloatingCount += Time.deltaTime;
+			RisuController.anim.SetBool("flow",true); //空中アニメーション　ON
 			if (FloatingCount > 0.2f) {
 				RisuController.GroundModeStart (); //地上にいる時の1フレーム目の処理メソッド
 				Status = state.ground;
@@ -92,18 +101,38 @@ public class risumoveScripts : MonoBehaviour {
 
 	void OnCollisionStay(Collision other){
 		
-		//幹にいる時の1フレーム目
+		//幹にいる間ずっと
 		if(other.gameObject.tag == ("Tree")){
 
 			FloatingFlag = false;  //リスが空中にいる時間をリセット
+			RisuController.anim.SetBool("flow",false); //空中アニメーション　OFF
 			FloatingCount = 0f;
 		}
 
-		//枝の上にいる1フレーム目
+		//枝の上にいる間ずっと
 		if(other.gameObject.tag == ("Branch")){
 
-			FloatingFlag = false; //リスが空中にいる時間をリセット
+			//リスが空中にいる時間をリセット
+			if(FloatingFlag != false)
+			FloatingFlag = false; 
 			FloatingCount = 0f;
+			if(RisuController.anim.GetBool("flow") != false)
+			RisuController.anim.SetBool("flow",false); //空中アニメーション　OFF
+
+		}
+
+		//地面の上にいる間ずっと
+		if(other.gameObject.tag == ("Ground")){
+
+			//jumpを一回に制限するためのフラグをオフに（jumpできるようにリセット）
+			if(JumpLimltFlag != false)
+			JumpLimltFlag = false; 
+
+			//空中アニメーション　OFF
+			if(RisuController.anim.GetBool("flow") != false)
+			RisuController.anim.SetBool("flow",false);
+
+
 		}
 	}
 
@@ -115,12 +144,14 @@ public class risumoveScripts : MonoBehaviour {
 	void OnCollisionExit(Collision other){
 		if (other.gameObject.tag == ("Tree")) {
 			FloatingFlag = true; //リスが空中にいる時間を計測開始
+			RisuController.anim.SetBool("flow",true); //空中アニメーション　ON
 			FloatingCount = 0f;
 		}
 
 		//枝の上にいる1フレーム目
 		if (other.gameObject.tag == ("Branch")) {
 			FloatingFlag = true; //リスが空中にいる時間を計測開始
+			RisuController.anim.SetBool("flow",true); //空中アニメーション　ON
 			FloatingCount = 0f;
 		}
 

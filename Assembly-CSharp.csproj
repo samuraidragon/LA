@@ -38,10 +38,10 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+      <HintPath>/Applications/Unity5_3_6/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+      <HintPath>/Applications/Unity5_3_6/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +94,7 @@
      <Compile Include="Assets\SAColliderBuilder\Scripts\SAMeshCollider.cs" />
      <Compile Include="Assets\SAColliderBuilder\Scripts\SAMeshColliderBuilder.cs" />
      <Compile Include="Assets\Scenetitle.cs" />
+     <Compile Include="Assets\attack.cs" />
      <Compile Include="Assets\gotitle.cs" />
      <Compile Include="Assets\hukurouController.cs" />
      <Compile Include="Assets\model\つっきー2016_11_11\hukurou_ani\Standard Assets\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" />
@@ -150,6 +151,7 @@
      <Compile Include="Assets\model\つっきー2016_11_11\hukurou_ani\Standard Assets\Utility\WaypointCircuit.cs" />
      <Compile Include="Assets\model\つっきー2016_11_11\hukurou_ani\Standard Assets\Utility\WaypointProgressTracker.cs" />
      <Compile Include="Assets\positionUp.cs" />
+     <Compile Include="Assets\prolougue.cs" />
      <Compile Include="Assets\risuController.cs" />
      <Compile Include="Assets\risuNPCmoveScript.cs" />
      <Compile Include="Assets\risuScoreScript.cs" />
@@ -249,10 +251,10 @@
      <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
  <Reference Include="UnityEngine.UI">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>/Applications/Unity5_3_6/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>/Applications/Unity5_3_6/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
