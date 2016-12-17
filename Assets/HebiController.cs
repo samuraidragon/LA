@@ -50,7 +50,9 @@ Animator anim;
 			
 		//	SC.center = new Vector3 (0.28f, 0.21f, 2.76f);
 			anim.SetBool ("attack", false);
-			anim.SetBool ("move", false);
+			anim.SetBool ("move", true);
+			transform.Rotate (0, 1 * Time.deltaTime * 10, 0);
+			transform.Translate (Vector3.forward * Time.deltaTime * 2);
 
 
 		}

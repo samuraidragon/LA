@@ -10,6 +10,10 @@ TagManager:
   - Nest
   - Branch
   - Hebihead
+  - hukurouhead
+  - hukurousayoku
+  - hukurouuyoku
+  - hukuroubody
   layers:
   - Default
   - TransparentFX

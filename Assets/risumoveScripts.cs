@@ -6,10 +6,10 @@ public class risumoveScripts : MonoBehaviour {
 	GameObject Controller;
 
 	//リスの状態を判断するためのステータスを列挙型にしている
-	enum state{
+	public enum state{
 		ground,tree,branch
 	}
-	state Status;
+	public state Status;
 
 	bool FloatingFlag;  //リスが空中に浮いているかを判断するためのフラグ
 	float FloatingCount; //リスが空中に浮いている時の時間
@@ -19,7 +19,7 @@ public class risumoveScripts : MonoBehaviour {
 	void Start () {
 		Controller = GameObject.Find ("GameControllers");
 		RisuController = Controller.GetComponent<risuController> ();
-		Cursor.visible = false;  //ゲームスタート時にカーソルを非表示にする
+	//	Cursor.visible = false;  //ゲームスタート時にカーソルを非表示にする
 		Status = state.ground; 
 		FloatingFlag = false;
 		FloatingCount = 0f;
