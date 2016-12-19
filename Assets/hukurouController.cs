@@ -48,15 +48,15 @@ bool upflag;
 		}
 
 
-		if ((Player.transform.position - this.transform.position).magnitude < 20 && (Player.transform.position - this.transform.position).magnitude >= 10 && Statusf == statehukurou.fly) {
+		if ((Player.transform.position - this.transform.position).magnitude < 13 && (Player.transform.position - this.transform.position).magnitude >= 4 && Statusf == statehukurou.fly) {
 			Statusf = statehukurou.kakkuu;
-		} else if ((Player.transform.position - this.transform.position).magnitude < 10 && (Player.transform.position - this.transform.position).magnitude >= 2 && Statusf == statehukurou.kakkuu) {
+		} else if ((Player.transform.position - this.transform.position).magnitude < 4 && (Player.transform.position - this.transform.position).magnitude >= 2 && Statusf == statehukurou.kakkuu) {
 			Statusf = statehukurou.attack;
 		} else if ((this.transform.position.y - Player.transform.position.y < 0.5)) {
 			Statusf = statehukurou.up; 
 		} 
 			
-		if (this.transform.position.y > 19 && Statusf == statehukurou.up) {
+		if (this.transform.position.y > 12 && Statusf == statehukurou.up) {
 			transform.rotation = Quaternion.Euler (0,180,0);
 			Statusf = statehukurou.fly;
 		}
@@ -88,7 +88,7 @@ bool upflag;
 
 		} 
 	void fly(){
-		transform.Rotate (0, 1 * Time.deltaTime * 10, 0);
+		transform.Rotate (0, 1 * Time.deltaTime * 13, 0);
 		transform.Translate (Vector3.forward * Time.deltaTime * 6);
 
 		anim.SetBool ("attack", false);

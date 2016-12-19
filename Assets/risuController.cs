@@ -68,6 +68,10 @@ public class risuController : MonoBehaviour {
 			risu.GetComponent<Rigidbody> ().isKinematic = false;
 
 		} 
+
+
+
+
 	}
 
 	//枝の上にいる1フレーム目

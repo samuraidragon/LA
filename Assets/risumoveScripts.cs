@@ -4,6 +4,12 @@ using System.Collections;
 public class risumoveScripts : MonoBehaviour {
 	risuController RisuController;
 	GameObject Controller;
+	public GameObject jumpicon;
+
+	Vector3 warppointpos;
+
+	bool warpflag;
+
 
 	//リスの状態を判断するためのステータスを列挙型にしている
 	public enum state{
@@ -24,6 +30,8 @@ public class risumoveScripts : MonoBehaviour {
 		FloatingFlag = false;
 		FloatingCount = 0f;
 
+		warpflag = false;
+
 	}
 	
 	// Update is called once per frame
@@ -32,6 +40,13 @@ public class risumoveScripts : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0)) {
 			RisuController.attack ();
 		}
+
+		Debug.Log("warpflag::"+warpflag);
+
+		if(warpflag == true){
+				transform.LookAt (warppointpos);
+				transform.Translate (Vector3.forward * Time.deltaTime * 7);
+				}
 
 
 		//リスが歩くためのメソッド呼び出し
@@ -107,6 +122,8 @@ public class risumoveScripts : MonoBehaviour {
 			FloatingFlag = false;  //リスが空中にいる時間をリセット
 			RisuController.anim.SetBool("flow",false); //空中アニメーション　OFF
 			FloatingCount = 0f;
+
+
 		}
 
 		//枝の上にいる間ずっと
@@ -156,5 +173,36 @@ public class risumoveScripts : MonoBehaviour {
 		}
 
 
+	}
+
+	void OnTriggerStay (Collider other)
+	{
+		if (other.gameObject.tag == "warp" && Status == state.tree) {
+			
+			warppointpos = other.gameObject.transform.position;
+			jumpicon.gameObject.SetActive (true);
+			if (Input.GetKeyDown (KeyCode.Space)) {
+
+				Debug.Log (warppointpos);
+
+				warpflag = true;
+			}
+					
+				if ((other.transform.position - transform.position).magnitude < 0.05f) {
+				warpflag = false;
+
+				}
+
+			}
+		}
+	
+
+	void OnTriggerExit (Collider other)
+	{
+
+		if (other.gameObject.tag == "warp") {
+			jumpicon.gameObject.SetActive(false);
+
+		}
 	}
 }
