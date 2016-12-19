@@ -143,7 +143,7 @@ Transform:
   m_Children:
   - {fileID: 1347324627}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 24
 --- !u!1001 &117104466
 Prefab:
   m_ObjectHideFlags: 0
@@ -628,7 +628,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neck: {fileID: 514335677}
-  risu: {fileID: 2119407526}
   jumppowr: 3
   anim: {fileID: 1303365421}
 --- !u!4 &410044204
@@ -705,7 +704,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
 --- !u!1 &514335677 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 187926, guid: 13762c8a3bdef407e950f049d4e7369e, type: 2}
@@ -832,6 +831,47 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06ed997bbc18b48e089e8a64849451c6, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &610904254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 610904256}
+  - 65: {fileID: 610904255}
+  m_Layer: 0
+  m_Name: "\bwarp (1)"
+  m_TagString: warp
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &610904255
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 610904254}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.42, y: 2.31, z: 1.5}
+  m_Center: {x: 0, y: -0.79, z: -0.88}
+--- !u!4 &610904256
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 610904254}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071067}
+  m_LocalPosition: {x: 152.7, y: 9.79, z: 166.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
 --- !u!1 &619997488 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100014, guid: 06ed997bbc18b48e089e8a64849451c6, type: 3}
@@ -964,7 +1004,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 710577498}
-  - 135: {fileID: 710577497}
+  - 65: {fileID: 710577497}
   m_Layer: 0
   m_Name: "\bwarp"
   m_TagString: warp
@@ -972,8 +1012,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &710577497
-SphereCollider:
+--- !u!65 &710577497
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -982,21 +1022,21 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.94
-  m_Center: {x: -0.7, y: -1.68, z: 0}
+  m_Size: {x: 3.42, y: 2.31, z: 1.5}
+  m_Center: {x: 0, y: -0.79, z: -0.88}
 --- !u!4 &710577498
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 710577496}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071067}
   m_LocalPosition: {x: 156.64, y: 9.43, z: 166.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 22
 --- !u!1 &715487301 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 06ed997bbc18b48e089e8a64849451c6, type: 3}
@@ -2035,10 +2075,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 13762c8a3bdef407e950f049d4e7369e, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2119407526 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 166838, guid: 13762c8a3bdef407e950f049d4e7369e, type: 2}
-  m_PrefabInternal: {fileID: 2119407525}
 --- !u!1 &2121963755 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100114, guid: 3694b77466d084ec190d46634301f9f2, type: 3}

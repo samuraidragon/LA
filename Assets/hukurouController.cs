@@ -35,9 +35,6 @@ bool upflag;
 	void Update ()
 	{
 		dir = (Player.transform.position - this.transform.position).magnitude;
-	//Debug.Log(dir);
-
-		Debug.Log(Statusf);
 
 		if (Statusf == statehukurou.fly) fly ();
 		if (Statusf == statehukurou.kakkuu) kakkuu ();
@@ -77,7 +74,7 @@ bool upflag;
 
 
 		void attack(){
-		Debug.Log("attack");
+
 		//hukuroumodel.transform.rotation = Quaternion.Euler(10,hukuroumodel.transform.rotation.y,hukuroumodel.transform.rotation.z);
 		transform.LookAt (Player.transform.position + new Vector3(0,0,0.1f));
 		transform.Translate (Vector3.forward* Time.deltaTime* 8);

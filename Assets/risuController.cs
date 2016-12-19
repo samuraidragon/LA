@@ -3,27 +3,29 @@ using System.Collections;
 
 public class risuController : MonoBehaviour {
 	public GameObject neck; 
-	public GameObject risu;
+	 GameObject risu;
 	public float jumppowr = 1;
 	Vector3 mousepos;
 	float rotate_x;
 	float rotate_y;
 	public Animator anim;
+	Vector3 risurotation;
 
 
 
 	// Use this for initialization
 	void Start () {
-//		if (GameObject.Find ("risu") != null) { //リスが削除されていないかをチェック
-//			risu = GameObject.Find ("risu");
+		if (GameObject.Find ("risu") != null) { //リスが削除されていないかをチェック
+			risu = GameObject.Find ("risu");
 //			neck = GameObject.Find ("risu/kubi");
 //		
-//		}
+	}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		risurotation = risu.transform.rotation.eulerAngles;
+		Debug.Log (risurotation);
 	}
 
 

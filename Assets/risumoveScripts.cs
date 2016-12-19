@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
-
 public class risumoveScripts : MonoBehaviour {
 	risuController RisuController;
 	GameObject Controller;
 	public GameObject jumpicon;
-
+	float speedfly;
 	Vector3 warppointpos;
 
 	bool warpflag;
@@ -30,6 +29,8 @@ public class risumoveScripts : MonoBehaviour {
 		FloatingFlag = false;
 		FloatingCount = 0f;
 
+		speedfly = 0;
+
 		warpflag = false;
 
 	}
@@ -40,13 +41,18 @@ public class risumoveScripts : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0)) {
 			RisuController.attack ();
 		}
-
-		Debug.Log("warpflag::"+warpflag);
-
+	
 		if(warpflag == true){
+			
+			speedfly += Time.deltaTime * Mathf.Pow(5,2);
 				transform.LookAt (warppointpos);
-				transform.Translate (Vector3.forward * Time.deltaTime * 7);
+			transform.Translate (Vector3.forward * Time.deltaTime * speedfly);
+			    RisuController.anim.Play(Animator.StringToHash("attack"));
 				}
+		if ((warppointpos - transform.position).magnitude <= 0.1f) {
+			warpflag = false;
+			speedfly = 0;
+		}
 
 
 		//リスが歩くためのメソッド呼び出し
@@ -181,18 +187,11 @@ public class risumoveScripts : MonoBehaviour {
 			
 			warppointpos = other.gameObject.transform.position;
 			jumpicon.gameObject.SetActive (true);
-			if (Input.GetKeyDown (KeyCode.Space)) {
 
-				Debug.Log (warppointpos);
-
+			if (Input.GetKeyDown (KeyCode.Space) ) {
 				warpflag = true;
 			}
 					
-				if ((other.transform.position - transform.position).magnitude < 0.05f) {
-				warpflag = false;
-
-				}
-
 			}
 		}
 	
@@ -202,6 +201,7 @@ public class risumoveScripts : MonoBehaviour {
 
 		if (other.gameObject.tag == "warp") {
 			jumpicon.gameObject.SetActive(false);
+			warpflag = false;
 
 		}
 	}

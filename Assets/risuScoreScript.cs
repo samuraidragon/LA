@@ -52,7 +52,7 @@ public class risuScoreScript : MonoBehaviour {
 		if (hold > Limit) {
 		hold = Limit;
 		}
-		Debug.Log("hold:"+ hold);
+
 	}
 	private IEnumerator Nest (GameObject N)
 	{
@@ -76,7 +76,6 @@ public class risuScoreScript : MonoBehaviour {
 		yield return new WaitForSeconds(0.01f);
 
 	
-		Debug.Log("hold2:"+ hold);
-		Debug.Log("Score:"+ Score);
+	
 	}
 }
