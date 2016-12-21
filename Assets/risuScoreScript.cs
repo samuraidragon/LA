@@ -21,6 +21,8 @@ public class risuScoreScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+
+
 		if (Score >= goal) {
 		SceneManager.LoadScene("clear");
 		}

@@ -19,9 +19,11 @@ public class risumoveScripts : MonoBehaviour {
 	bool FloatingFlag;  //リスが空中に浮いているかを判断するためのフラグ
 	float FloatingCount; //リスが空中に浮いている時の時間
 	bool JumpLimltFlag; //jumpを一回に制限するためのフラグ
+	float attackintrval;
 
 
 	void Start () {
+		attackintrval = 0;
 		Controller = GameObject.Find ("GameControllers");
 		RisuController = Controller.GetComponent<risuController> ();
 	//	Cursor.visible = false;  //ゲームスタート時にカーソルを非表示にする
@@ -38,8 +40,14 @@ public class risumoveScripts : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		if (Input.GetMouseButtonDown (0)) {
+
+		if (attackintrval <= 2) {
+			attackintrval += Time.deltaTime;
+		}
+		if (Input.GetMouseButtonDown (0) && attackintrval > 2) {
+			attackintrval = 0;
 			RisuController.attack ();
+
 		}
 
 //		Debug.Log(Status);
@@ -64,6 +72,10 @@ public class risumoveScripts : MonoBehaviour {
 		//リスが走るためのメソッド呼び出し
 		if (Input.GetKey (KeyCode.LeftShift)) {
 			RisuController.dash ();
+		} else {
+			if (RisuController.stamina < RisuController.maxstamina) {
+				RisuController.stamina += 0.01f;
+			}
 		}
 		if (Input.GetKeyDown (KeyCode.Space) && Input.GetAxis ("Vertical") > 0 && JumpLimltFlag == false) {
 			RisuController.jump ();

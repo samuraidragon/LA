@@ -644,6 +644,9 @@ MonoBehaviour:
   neck: {fileID: 514335677}
   jumppowr: 3
   anim: {fileID: 1303365421}
+  dashanim: {fileID: 0}
+  maxstamina: 4
+  stamina: 0
 --- !u!4 &410044204
 Transform:
   m_ObjectHideFlags: 0
@@ -723,6 +726,17 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 187926, guid: 13762c8a3bdef407e950f049d4e7369e, type: 2}
   m_PrefabInternal: {fileID: 2119407525}
+--- !u!114 &514335685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 514335677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 763140a23a25fa548ad2458dc216dc8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &588762202
 Prefab:
   m_ObjectHideFlags: 0

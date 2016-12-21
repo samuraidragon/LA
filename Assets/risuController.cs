@@ -9,7 +9,11 @@ public class risuController : MonoBehaviour {
 	float rotate_x;
 	float rotate_y;
 	public Animator anim;
+	public Animation dashanim;
 	Vector3 risurotation;
+	public float maxstamina = 4; //スタミナ最大値
+	[HideInInspector]
+	public float stamina;//スタミナ
 
 
 
@@ -17,6 +21,7 @@ public class risuController : MonoBehaviour {
 	void Start () {
 		if (GameObject.Find ("risu") != null) { //リスが削除されていないかをチェック
 			risu = GameObject.Find ("risu");
+			stamina = maxstamina;
 //			neck = GameObject.Find ("risu/kubi");
 //		
 	}
@@ -24,7 +29,11 @@ public class risuController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+
+		Debug.Log (rotate_x);
 		risurotation = risu.transform.rotation.eulerAngles;
+
 		//Debug.Log (risurotation);
 	}
 
@@ -40,10 +49,22 @@ public class risuController : MonoBehaviour {
 
 	//地上にいる時ずっと
 	public void GroundModeUpdate(){
-		rotate_x = Input.GetAxis("Mouse Y");
+		//rotate_x = Input.GetAxis("Mouse Y");
+		//if (neck.transform.rotation.eulerAngles.x <= 360 && neck.transform.rotation.eulerAngles.x >= 280 || neck.transform.rotation.eulerAngles.x >= 0 && neck.transform.rotation.eulerAngles.x <= 65) {
+			rotate_x = Input.GetAxis("Mouse Y");
+		
+		if(neck.transform.rotation.eulerAngles.x < 280 && neck.transform.rotation.eulerAngles.x > 65){
+			rotate_x = Input.GetAxis("Mouse Y") * -20;
+
+		}
 		rotate_y = Input.GetAxis("Mouse X");
 		risu.transform.rotation = risu.transform.rotation *  Quaternion.Euler (0,rotate_y,0);
-		neck.transform.rotation = neck.transform.rotation * Quaternion.Euler(-rotate_x,0,0);
+		neck.transform.rotation = neck.transform.rotation * Quaternion.Euler (-rotate_x, 0, 0);
+
+	
+
+
+		//neck.transform.rotation = neck.transform.rotation * Quaternion.Euler(-rotate_x,0,0);
 		anim.SetBool("tree",false); //木にへばりついているアニメーション　OFF（立っているアニメーション　ON）
 	}
 
@@ -61,6 +82,9 @@ public class risuController : MonoBehaviour {
 	public void TreeModeUpdate ()
 	{   
 		rotate_x = Input.GetAxis ("Mouse Y");
+		if(neck.transform.rotation.eulerAngles.x < 280 && neck.transform.rotation.eulerAngles.x > 20){
+			rotate_x = Input.GetAxis("Mouse Y") * -20;
+		}
 		rotate_y = Input.GetAxis ("Mouse X");
 		risu.transform.rotation = risu.transform.rotation * Quaternion.Euler (0, rotate_y, 0);
 		neck.transform.rotation = neck.transform.rotation * Quaternion.Euler (-rotate_x, 0, 0);
@@ -89,6 +113,10 @@ public class risuController : MonoBehaviour {
 	public void BranchModeUpdate ()
 	{   
 		rotate_x = Input.GetAxis ("Mouse Y");
+		if(neck.transform.rotation.eulerAngles.x < 280 && neck.transform.rotation.eulerAngles.x > 65){
+			rotate_x = Input.GetAxis("Mouse Y") * -20;
+
+		}
 		rotate_y = Input.GetAxis ("Mouse X");
 		risu.transform.rotation = risu.transform.rotation * Quaternion.Euler (0, rotate_y, 0);
 		neck.transform.rotation = neck.transform.rotation * Quaternion.Euler (-rotate_x, 0, 0);
@@ -105,6 +133,7 @@ public class risuController : MonoBehaviour {
 
 		float dx = Input.GetAxis ("Horizontal");
 		float dy = Input.GetAxis ("Vertical");
+
 		if (dy > 0) {
 			risu.transform.Translate (dx * Time.deltaTime * 2, 0, dy * Time.deltaTime * 2);
 		}
@@ -117,10 +146,13 @@ public class risuController : MonoBehaviour {
 		float dx = Input.GetAxis ("Horizontal");
 		float dy = Input.GetAxis ("Vertical");
 
-		if (dy > 0) {
-		risu.transform.Translate (dx * Time.deltaTime * 2 * 2 ,0, dy * Time.deltaTime * 2 * 2);
-		}
-		anim.SetBool("dash",true);//ダッシュアニメーション　ON
+		if (dy > 0 && stamina > 1) {
+			risu.transform.Translate (dx * Time.deltaTime * stamina, 0, dy * Time.deltaTime * stamina);
+			//dashanim ["dash"].speed = stamina - 1;
+			stamina -= 0.004f;
+			anim.SetBool ("dash", true);//ダッシュアニメーション　ON
+		} 
+		//anim.SetBool("dash",true);//ダッシュアニメーション　ON
 	}
 
 	public void jump(){
