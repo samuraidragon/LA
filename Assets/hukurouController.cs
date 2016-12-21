@@ -4,6 +4,7 @@ using System.Collections;
 public class hukurouController : MonoBehaviour {
 GameObject Player;
 GameObject hukuroumodel;
+public GameObject risunpc;
 
 Vector3 random;
 float add;
@@ -12,7 +13,7 @@ public Animator anim;
 float dir;
 
 bool upflag;
-
+bool attacknpcflag;
 	enum statehukurou{
 		fly,kakkuu,attack,up
 	}
@@ -23,6 +24,7 @@ bool upflag;
 	// Use this for initialization
 	void Start () {
 		 
+		 attacknpcflag = false;
 	Statusf = statehukurou.fly;
 	Player = GameObject.FindWithTag("Player");
 
@@ -34,13 +36,22 @@ bool upflag;
 	// Update is called once per frame
 	void Update ()
 	{
+
+		Debug.Log (attacknpcflag);
+		Debug.Log (Statusf);
+		if (risunpc != null) {
+			Debug.Log (risunpc.name);
+		}
 		dir = (Player.transform.position - this.transform.position).magnitude;
 
-		if (Statusf == statehukurou.fly) fly ();
-		if (Statusf == statehukurou.kakkuu) kakkuu ();
-		if (Statusf == statehukurou.attack) attack ();
+		if (Statusf == statehukurou.fly)
+			fly ();
+		if (Statusf == statehukurou.kakkuu)
+			kakkuu ();
+		if (Statusf == statehukurou.attack)
+			attack ();
 		if (Statusf == statehukurou.up) {
-			transform.Translate(Vector3.forward * Time.deltaTime * 7);
+			transform.Translate (Vector3.forward * Time.deltaTime * 7);
 			transform.rotation = Quaternion.Euler (-40, 0, 0);
 		}
 
@@ -54,21 +65,45 @@ bool upflag;
 		} 
 			
 		if (this.transform.position.y > 12 && Statusf == statehukurou.up) {
-			transform.rotation = Quaternion.Euler (0,180,0);
+			transform.rotation = Quaternion.Euler (0, 180, 0);
 			Statusf = statehukurou.fly;
 		}
 
+		if (attacknpcflag == true) {
+			
+			if ((risunpc.transform.position - this.transform.position).magnitude >= 4 && Statusf == statehukurou.fly) {
+				Statusf = statehukurou.kakkuu;
+		}else if ((this.transform.position.y - risunpc.gameObject.transform.position.y < 0.5)) {
+					Statusf = statehukurou.up; 
+				} 
+				
+				if (this.transform.position.y > 12 && Statusf == statehukurou.up) {
+					transform.rotation = Quaternion.Euler (0, 180, 0);
+					Statusf = statehukurou.fly;
+				}
+			}
+		
 
 	}
 	void kakkuu ()
 	{
 		
 		//	SC.center = new Vector3 (0.28f, 0, 2.76f)
-		transform.LookAt (Player.transform.position + new Vector3(0,0,1));
-		transform.Translate (Vector3.forward * Time.deltaTime* 10);
-		anim.SetBool ("move", false);
-		anim.SetBool ("attack", false);
-		anim.SetBool ("kakkuu", true);
+		if (attacknpcflag == false) {
+			transform.LookAt (Player.transform.position + new Vector3 (0, 0, 1));
+			transform.Translate (Vector3.forward * Time.deltaTime * 10);
+			anim.SetBool ("move", false);
+			anim.SetBool ("attack", false);
+			anim.SetBool ("kakkuu", true);
+		} else {
+			if (risunpc != null) {
+				transform.LookAt (risunpc.gameObject.transform.position + new Vector3 (0, 0, 1));
+				transform.Translate (Vector3.forward * Time.deltaTime * 10);
+				anim.SetBool ("move", false);
+				anim.SetBool ("attack", false);
+				anim.SetBool ("kakkuu", true);
+			}
+		}
 
 	}
 
@@ -91,9 +126,18 @@ bool upflag;
 		anim.SetBool ("attack", false);
 		anim.SetBool ("move", true);
 		anim.SetBool ("kakkuu", false);
+	//	risunpc =null;
 
 
 	} 
+
+	void OnTriggerStay (Collider other)
+	{
+		if (other.tag == "risuNPC" && Statusf == statehukurou.fly) {
+		risunpc = other.gameObject;
+		attacknpcflag = true;
+		}
+	}
 
 
 

@@ -9,7 +9,7 @@ HebiController HC = new HebiController();
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 	//HC.up();
     
-	Debug.Log("up");
+//	Debug.Log("up");
 		
 	}
 

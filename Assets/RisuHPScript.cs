@@ -12,7 +12,7 @@ AnimatorStateInfo hebianim;
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log ("HP:" + HP);
+//		Debug.Log ("HP:" + HP);
 	}
 	void OnTriggerEnter (Collider other)
 	{

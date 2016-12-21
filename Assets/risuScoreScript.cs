@@ -68,6 +68,13 @@ public class risuScoreScript : MonoBehaviour {
 		Score += stock;
 		for (int s = 0; s < stock; s++) {
 			Instantiate (risuNPC, N.transform.position, Quaternion.Euler (0, Random.Range (0, 360), 0));
+			Instantiate (risuNPC, N.transform.position, Quaternion.Euler (0, Random.Range (0, 360), 0));
+			Instantiate (risuNPC, N.transform.position, Quaternion.Euler (0, Random.Range (0, 360), 0));
+
+			Instantiate (risuNPC, N.transform.position, Quaternion.Euler (0, Random.Range (0, 360), 0));
+			Instantiate (risuNPC, N.transform.position, Quaternion.Euler (0, Random.Range (0, 360), 0));
+
+
 		}
 
 		yield return new WaitForSeconds(0.01f);

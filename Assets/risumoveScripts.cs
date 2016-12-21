@@ -41,6 +41,8 @@ public class risumoveScripts : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0)) {
 			RisuController.attack ();
 		}
+
+//		Debug.Log(Status);
 	
 		if(warpflag == true){
 			
@@ -50,6 +52,7 @@ public class risumoveScripts : MonoBehaviour {
 			    RisuController.anim.Play(Animator.StringToHash("attack"));
 				}
 		if ((warppointpos - transform.position).magnitude <= 0.1f) {
+			
 			warpflag = false;
 			speedfly = 0;
 		}

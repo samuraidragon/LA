@@ -25,7 +25,7 @@ public class risuController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		risurotation = risu.transform.rotation.eulerAngles;
-		Debug.Log (risurotation);
+		//Debug.Log (risurotation);
 	}
 
 
@@ -33,7 +33,7 @@ public class risuController : MonoBehaviour {
 	public void GroundModeStart(){							
 		risu.GetComponent<Rigidbody> ().useGravity = true;		 //重力をいれる
 		risu.GetComponent<Rigidbody> ().isKinematic = false;		 //木から離れるようになる
-		risu.transform.eulerAngles =  new Vector3(0, 0, 0);	//視点を前に（体を横にする）
+		risu.transform.eulerAngles =  new Vector3(0, risurotation.y, 0);	//視点を前に（体を横にする）
 		anim.SetBool("tree",false); //木にへばりついているアニメーション　OFF（立っているアニメーション　ON）
 
 	}
@@ -80,7 +80,7 @@ public class risuController : MonoBehaviour {
 	public void BranchModeStart(){   
 		risu.GetComponent<Rigidbody> ().isKinematic = true;       //木にくっつく
 		risu.GetComponent<Rigidbody> ().useGravity = false;		 //重力をなくす
-		risu.transform.eulerAngles =  new Vector3(0, 0, 0);	//視点を前に（体を横にする）
+		risu.transform.eulerAngles =  new Vector3(0, risurotation.y, 0);	//視点を前に（体を横にする）
 		anim.SetBool("tree",false); //木にへばりついているアニメーション　OFF（立っているアニメーション　ON）
 
 	}
