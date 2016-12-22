@@ -4,7 +4,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class risuScoreScript : MonoBehaviour {
-	public static int Score;
+	public static float Score;
 	int hold;
 	public int Limit;
 	public int goal;
@@ -12,6 +12,7 @@ public class risuScoreScript : MonoBehaviour {
 	public Text ScoreText;
 	public GameObject risuNPC;
 
+	public GameObject hierarky;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +23,7 @@ public class risuScoreScript : MonoBehaviour {
 	void Update ()
 	{
 
+		hierarky.GetComponent<RectTransform>().position = new Vector3 (hierarky.GetComponent<RectTransform>().position.x, Score ,hierarky.GetComponent<RectTransform>().position.z);
 
 		if (Score >= goal) {
 		SceneManager.LoadScene("clear");

@@ -1,18 +1,28 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class RisuHPScript : MonoBehaviour {
-public int HP = 5;
+public float MAXHP = 5;
+public float HP;
 AnimatorStateInfo hebianim; 
+
+public GameObject HPgage;
+
+
 	// Use this for initialization
 	void Start () {
+	HP = MAXHP;
+
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-//		Debug.Log ("HP:" + HP);
+
+		HPgage.GetComponent<Image>().fillAmount = HP / MAXHP;
+		Debug.Log ("HP:" + HP);
 	}
 	void OnTriggerEnter (Collider other)
 	{
