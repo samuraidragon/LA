@@ -37,10 +37,8 @@ bool attacknpcflag;
 	void Update ()
 	{
 
-		Debug.Log (attacknpcflag);
-		Debug.Log (Statusf);
 		if (risunpc != null) {
-			Debug.Log (risunpc.name);
+			
 		}
 		dir = (Player.transform.position - this.transform.position).magnitude;
 
@@ -69,11 +67,13 @@ bool attacknpcflag;
 			Statusf = statehukurou.fly;
 		}
 
-		if (attacknpcflag == true) {
+		if (attacknpcflag == true && risunpc != null) {
 			
-			if ((risunpc.transform.position - this.transform.position).magnitude >= 4 && Statusf == statehukurou.fly) {
+			if ((risunpc.transform.position - this.transform.position).magnitude >= 4 && Statusf == statehukurou.fly ) {
 				Statusf = statehukurou.kakkuu;
-		}else if ((this.transform.position.y - risunpc.gameObject.transform.position.y < 0.5)) {
+			}else if ((risunpc.transform.position - this.transform.position).magnitude < 4 && (risunpc.transform.position - this.transform.position).magnitude >= 2 && Statusf == statehukurou.kakkuu) {
+			Statusf = statehukurou.attack;
+		   } else if ((this.transform.position.y - risunpc.gameObject.transform.position.y < 0.5f)) {
 					Statusf = statehukurou.up; 
 				} 
 				
@@ -97,7 +97,7 @@ bool attacknpcflag;
 			anim.SetBool ("kakkuu", true);
 		} else {
 			if (risunpc != null) {
-				transform.LookAt (risunpc.gameObject.transform.position + new Vector3 (0, 0, 1));
+				transform.LookAt (risunpc.gameObject.transform.position + new Vector3(0,0,1));
 				transform.Translate (Vector3.forward * Time.deltaTime * 10);
 				anim.SetBool ("move", false);
 				anim.SetBool ("attack", false);
@@ -108,17 +108,26 @@ bool attacknpcflag;
 	}
 
 
-		void attack(){
-
-		//hukuroumodel.transform.rotation = Quaternion.Euler(10,hukuroumodel.transform.rotation.y,hukuroumodel.transform.rotation.z);
-		transform.LookAt (Player.transform.position + new Vector3(0,0,0.1f));
-		transform.Translate (Vector3.forward* Time.deltaTime* 8);
+		void attack ()
+	{
+		if (attacknpcflag == false) {
+			//hukuroumodel.transform.rotation = Quaternion.Euler(10,hukuroumodel.transform.rotation.y,hukuroumodel.transform.rotation.z);
+			transform.LookAt (Player.transform.position + new Vector3 (0, 0, 0.1f));
+			transform.Translate (Vector3.forward * Time.deltaTime * 8);
 			anim.SetBool ("attack", true);
 			anim.SetBool ("move", false);
 			anim.SetBool ("kakkuu", false);
-
+		} else {
+			if (risunpc != null) {
+				transform.LookAt (risunpc.gameObject.transform.position + new Vector3 (0, 0, 0.5f));
+				transform.Translate (Vector3.forward * Time.deltaTime * 8);
+				anim.SetBool ("move", false);
+				anim.SetBool ("attack", true);
+				anim.SetBool ("kakkuu", false);
+			}
 
 		} 
+	}
 	void fly(){
 		transform.Rotate (0, 1 * Time.deltaTime * 13, 0);
 		transform.Translate (Vector3.forward * Time.deltaTime * 6);

@@ -8,27 +8,42 @@ public class risuScoreScript : MonoBehaviour {
 	int hold;
 	public int Limit;
 	public int goal;
-	public Text HoldText;
 	public Text ScoreText;
 	public GameObject risuNPC;
 
+	public Sprite [] risuface;
+
 	public GameObject hierarky;
+	public GameObject holdUI;
 
 	// Use this for initialization
 	void Start () {
-	
+		//holdUI.GetComponent<Image>().material.mainTexture = risuface[0];
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-
-		hierarky.GetComponent<RectTransform>().position = new Vector3 (hierarky.GetComponent<RectTransform>().position.x, Score ,hierarky.GetComponent<RectTransform>().position.z);
+		if (hold == 0) {
+			holdUI.GetComponent<Image> ().sprite = risuface [0];
+		}else if (hold == 1) {
+			holdUI.GetComponent<Image> ().sprite = risuface [1];
+		}else if (hold >= 2 && hold <= 3) {
+			holdUI.GetComponent<Image> ().sprite = risuface [2];
+	}else if (hold >= 4 && hold <= 5) {
+			holdUI.GetComponent<Image> ().sprite = risuface [3];
+	}else if (hold >= 6 && hold <= 7) {
+			holdUI.GetComponent<Image> ().sprite = risuface [4];
+	}else if (hold == Limit) {
+			holdUI.GetComponent<Image> ().sprite = risuface [5];
+		}
+		
+		hierarky.GetComponent<RectTransform>().position = new Vector3 (hierarky.GetComponent<RectTransform>().position.x, Score * 5f ,hierarky.GetComponent<RectTransform>().position.z);
 
 		if (Score >= goal) {
 		SceneManager.LoadScene("clear");
 		}
-		HoldText.text = "Hold:" + hold.ToString() + "/" + Limit.ToString();
+
 		ScoreText.text = "Score:" + Score.ToString() + "/" + goal.ToString();
 	}
 	void OnCollisionEnter (Collision other)
@@ -64,26 +79,23 @@ public class risuScoreScript : MonoBehaviour {
 		int stock = 0;
 		stock = hold;
 		yield return new WaitForSeconds (0.01f);
+		hold = 0;
 
 		GetComponent<risumoveScripts> ().enabled = false;
 		yield return new WaitForSeconds (1f);
 		GetComponent<risumoveScripts> ().enabled = true;
 
-		Score += stock;
+		//Score += stock;
 		for (int s = 0; s < stock; s++) {
 			Instantiate (risuNPC, N.transform.position, Quaternion.Euler (0, Random.Range (0, 360), 0));
-			Instantiate (risuNPC, N.transform.position, Quaternion.Euler (0, Random.Range (0, 360), 0));
-			Instantiate (risuNPC, N.transform.position, Quaternion.Euler (0, Random.Range (0, 360), 0));
-
-			Instantiate (risuNPC, N.transform.position, Quaternion.Euler (0, Random.Range (0, 360), 0));
-			Instantiate (risuNPC, N.transform.position, Quaternion.Euler (0, Random.Range (0, 360), 0));
-
+			Score ++;
+			yield return new WaitForSeconds (0.5f);
 
 		}
 
 		yield return new WaitForSeconds(0.01f);
 			stock = 0;
-			hold = 0;
+
 		yield return new WaitForSeconds(0.01f);
 
 	

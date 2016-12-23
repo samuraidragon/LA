@@ -22,7 +22,7 @@ public GameObject HPgage;
 	void Update () {
 
 		HPgage.GetComponent<Image>().fillAmount = HP / MAXHP;
-		Debug.Log ("HP:" + HP);
+
 	}
 	void OnTriggerEnter (Collider other)
 	{
@@ -30,7 +30,7 @@ public GameObject HPgage;
 		if (other.gameObject.tag == "Hebihead" && other.transform.parent.gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attack") == true) {
 			HP--;
 			if (HP <= 0) {
-			Destroy(this.gameObject);
+			//Destroy(this.gameObject);
 			SceneManager.LoadScene("gameover");
 			}
 
@@ -43,7 +43,7 @@ public GameObject HPgage;
 		if (other.gameObject.tag == "hukurouhead" || other.gameObject.tag == "hukuroubody" ) {
 			HP -= 2;
 			if (HP <= 0) {
-				Destroy(this.gameObject);
+				//Destroy(this.gameObject);
 				SceneManager.LoadScene("gameover");
 			}
 

@@ -50,7 +50,6 @@ public class risumoveScripts : MonoBehaviour {
 
 		}
 
-//		Debug.Log(Status);
 	
 		if(warpflag == true){
 			

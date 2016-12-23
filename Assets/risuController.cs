@@ -31,10 +31,10 @@ public class risuController : MonoBehaviour {
 	void Update () {
 
 
-		Debug.Log (rotate_x);
+
 		risurotation = risu.transform.rotation.eulerAngles;
 
-		//Debug.Log (risurotation);
+	
 	}
 
 

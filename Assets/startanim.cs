@@ -12,6 +12,8 @@ public class startanim : MonoBehaviour {
 	void Start () {
 		time = 0;
 		countfklag = false;
+		//Time.timeScale = 0;
+		Application.CaptureScreenshot("画像の名前.png");
 	}
 	
 	// Update is called once per frame
