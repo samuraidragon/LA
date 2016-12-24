@@ -16,6 +16,8 @@ public class risuScoreScript : MonoBehaviour {
 	public GameObject hierarky;
 	public GameObject holdUI;
 
+	public  AudioSource se;
+
 	// Use this for initialization
 	void Start () {
 		//holdUI.GetComponent<Image>().material.mainTexture = risuface[0];
@@ -57,7 +59,8 @@ public class risuScoreScript : MonoBehaviour {
 
 
 		}
-		if (other.gameObject.tag == "Nest") {
+		if (other.gameObject.tag == "Nest" && hold > 0) {
+			se.Play();
 			StartCoroutine(Nest(other.gameObject));
 
 

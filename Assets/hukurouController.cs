@@ -10,6 +10,8 @@ Vector3 random;
 float add;
 public Animator anim;
 
+
+
 float dir;
 
 bool upflag;
@@ -90,6 +92,7 @@ bool attacknpcflag;
 		
 		//	SC.center = new Vector3 (0.28f, 0, 2.76f)
 		if (attacknpcflag == false) {
+			
 			transform.LookAt (Player.transform.position + new Vector3 (0, 0, 1));
 			transform.Translate (Vector3.forward * Time.deltaTime * 10);
 			anim.SetBool ("move", false);
@@ -129,6 +132,7 @@ bool attacknpcflag;
 		} 
 	}
 	void fly(){
+
 		transform.Rotate (0, 1 * Time.deltaTime * 13, 0);
 		transform.Translate (Vector3.forward * Time.deltaTime * 6);
 

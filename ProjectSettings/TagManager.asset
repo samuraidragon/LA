@@ -18,6 +18,7 @@ TagManager:
   - risuNPC
   - hebi
   - hukurou
+  - kabe
   layers:
   - Default
   - TransparentFX

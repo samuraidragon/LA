@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/defalme.unity
+- path: Assets/stage.unity
   isLoaded: 1
   isActive: 1
