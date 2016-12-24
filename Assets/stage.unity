@@ -16495,7 +16495,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 407448, guid: 13a4a6f661d7a0442b21917fd1e5d582, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 81.3
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 407448, guid: 13a4a6f661d7a0442b21917fd1e5d582, type: 2}
       propertyPath: m_LocalRotation.x
@@ -16547,7 +16547,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 8280764, guid: 13a4a6f661d7a0442b21917fd1e5d582, type: 2}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].time
-      value: 0.03308676
+      value: 0.08677804
       objectReference: {fileID: 0}
     - target: {fileID: 8280764, guid: 13a4a6f661d7a0442b21917fd1e5d582, type: 2}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].value

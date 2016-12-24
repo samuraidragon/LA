@@ -12,7 +12,7 @@ public class risumoveScripts : MonoBehaviour {
 
 	//リスの状態を判断するためのステータスを列挙型にしている
 	public enum state{
-		ground,tree,branch
+		ground,tree,branch,jump
 	}
 	public state Status;
 
@@ -40,11 +40,11 @@ public class risumoveScripts : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-
+		Debug.Log (Status);
 		if (attackintrval <= 2) {
 			attackintrval += Time.deltaTime;
 		}
-		if (Input.GetMouseButtonDown (0) && attackintrval > 2) {
+		if (Input.GetMouseButtonDown (0) && attackintrval > 2 && Status == state.ground) {
 			attackintrval = 0;
 			RisuController.attack ();
 
@@ -76,9 +76,10 @@ public class risumoveScripts : MonoBehaviour {
 				RisuController.stamina += 0.01f;
 			}
 		}
-		if (Input.GetKeyDown (KeyCode.Space) && Input.GetAxis ("Vertical") > 0 && JumpLimltFlag == false) {
+		if (Input.GetKeyDown (KeyCode.Space) && Input.GetAxis ("Vertical") > 0 && Status == state.ground) {
+			Status = state.jump;
 			RisuController.jump ();
-			JumpLimltFlag = true; //jumpを一回に制限するためのフラグをONに（jumpできないように制限）
+
 		}
 
 		//リスが空中にいるときの時間を計測する（すぐに視点が切り替わるのを防ぐため）
@@ -131,6 +132,13 @@ public class risumoveScripts : MonoBehaviour {
 			FloatingFlag = false; //リスが空中にいる時間をリセット
 			FloatingCount = 0f;
 		}
+		if (other.gameObject.tag == ("Ground")) {
+
+			//jumpを一回に制限するためのフラグをオフに（jumpできるようにリセット）
+			if (Status == state.jump)
+				Status = state.ground;
+
+		}
 	}
 
 
@@ -161,9 +169,7 @@ public class risumoveScripts : MonoBehaviour {
 		//地面の上にいる間ずっと
 		if(other.gameObject.tag == ("Ground")){
 
-			//jumpを一回に制限するためのフラグをオフに（jumpできるようにリセット）
-			if(JumpLimltFlag != false)
-			JumpLimltFlag = false; 
+
 
 			//空中アニメーション　OFF
 			if(RisuController.anim.GetBool("flow") != false)

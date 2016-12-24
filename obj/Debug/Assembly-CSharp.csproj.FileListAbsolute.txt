@@ -40,3 +40,5 @@ G:\Git\LA\Temp\bin\Debug\UnityEditor.xml
 G:\Git\LA\Temp\bin\Debug\UnityEngine.UI.xml
 G:\Git\LA\Temp\bin\Debug\UnityEngine.Networking.xml
 G:\Git\LA\obj\Debug\Assembly-CSharp.pdb
+G:\Git\LittleAngeles\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+G:\Git\LittleAngeles\obj\Debug\Assembly-CSharp.dll
